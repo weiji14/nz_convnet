@@ -1,0 +1,13 @@
+name: geoenv
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - keras-gpu
+  - matplotlib
+  - numpy
+  - gdal
+  - jupyterlab
+  - scikit-learn
+  - scikit-image
+prefix: /home/user/miniconda3
