@@ -1,10 +1,23 @@
 Convolutional Neural Network (ConvNet) trained on open data from Land Information New Zealand (LINZ). Specifically, we train the ConvNet on aerial photography to detect building outlines.
 
-# Quickstart
+# Getting started
+
+## Quickstart
 
 Launch Binder
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/weiji14/nz_convnet/master)
+
+## Installation
+
+    git clone https://github.com/weiji14/nz_convnet.git
+    cd nz_convnet
+    conda env create -f environment.yml
+
+## Running the jupyter notebook
+
+    source activate nz_convnet
+    jupyter notebook
 
 # Data sources used:
 
