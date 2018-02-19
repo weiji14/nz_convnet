@@ -1,13 +1,15 @@
-name: geoenv
+name: nz_convnet
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - keras-gpu
   - matplotlib
   - numpy
   - gdal
   - jupyterlab
   - scikit-learn
   - scikit-image
+  - pip:
+    - keras>=2.1.4
+    - tensorflow-gpu==1.5.1
 prefix: /home/user/miniconda3
