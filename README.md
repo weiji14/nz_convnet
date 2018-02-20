@@ -17,6 +17,8 @@ Launch Binder
 ## Running the jupyter notebook
 
     source activate nz_convnet
+    python -m ipykernel install --user  #to install conda env properly
+    jupyter kernelspec list --json      #see if kernel is installed
     jupyter notebook
 
 # Data sources used
@@ -27,9 +29,9 @@ Using freely available data from [LINZ Data Service](https://data.linz.govt.nz/)
 
 ### Images
 
-|Region Crop Type                       |Region Name             |LINZ Data Source|
+|Region Crop Type                       |Region Name                          |LINZ Data Source|
 | ------------------------------------- |:----------------------:| --------------:|
-| General Electorate Boundaries 2014    | Wigram                 | [Canterbury 0.3m Rural Aerial Photos (2015-16)](https://data.linz.govt.nz/layer/53519-canterbury-03m-rural-aerial-photos-2015-16/) |
+| General Electorate Boundaries 2014    | Wigram                              | [Canterbury 0.3m Rural Aerial Photos (2015-16)](https://data.linz.govt.nz/layer/53519-canterbury-03m-rural-aerial-photos-2015-16/) |
 
 ### Mask
 
