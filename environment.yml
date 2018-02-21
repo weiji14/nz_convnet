@@ -3,7 +3,9 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - dask
   - gdal
+  - h5py
   - jupyterlab
   - matplotlib
   - numpy

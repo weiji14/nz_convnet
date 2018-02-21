@@ -1,4 +1,7 @@
-data/raster
 data/vector
+data/raster/downloads
+data/raster
+data/train
+data/test
 data/logs
-data/model/weights*
+data/model/**/weights*
