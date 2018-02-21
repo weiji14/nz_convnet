@@ -31,6 +31,15 @@ Launch Binder
 | data/train            | X_2015_BK39_5000_0401_RGB.hdf5                   | \*.hdf5   | binary of tif file to load into numpy array |
 | data/test             | wellington-03m-rural-aerial-photos-2012-2013.tif | \*.tif    | unzipped files similar to those in data/raster |
 
+## Near realtime prediction
+    
+    source activate nz_convnet
+    python predict.py 512  #set to output pixel size e.g. 256, 512, 1024
+
+Live testing on imagery of Karori, Wellington.
+
+![livesample1](https://user-images.githubusercontent.com/23487320/36468063-aed6c1bc-1746-11e8-8337-51a6a62ec796.gif)
+
 # Data sources used to train the [keras](https://github.com/keras-team/keras) model
 
 Using freely available data from [LINZ Data Service](https://data.linz.govt.nz/). As there is a 3.5GB limit, we resort to using region crops using the 'Set a crop' tool on the top right. Not ideal but it ensures a little bit of reproducibility.
