@@ -31,7 +31,9 @@ Launch Binder
 | data/train            | X_2015_BK39_5000_0401_RGB.hdf5                   | \*.hdf5   | binary of tif file to load into numpy array |
 | data/test             | wellington-03m-rural-aerial-photos-2012-2013.tif | \*.tif    | unzipped files similar to those in data/raster |
 
-## Near realtime prediction
+## Prediction
+
+### In near realtime!
 
     source activate nz_convnet
     python predict.py
@@ -44,6 +46,33 @@ Launch Binder
 Live testing on imagery of Karori, Wellington.
 
 ![livesample1](https://user-images.githubusercontent.com/23487320/36468063-aed6c1bc-1746-11e8-8337-51a6a62ec796.gif)
+
+### To a raster geotiff (which you can vectorize to a polygon)
+
+Once you clone the repository, open the [jupyter notebook](nz_convnet.ipynb) and follow the instructions to run 'Part 5 - Save Results'.
+You will need to have some geotiffs inside the data/test folder, and you may need to tweak the (img_height, img_width) parameter.
+
+There might need to be some fiddling on your part to get this parameter right, so that the input RGB image will be tiled perfectly.
+The algorithm will create a prediction on each tile, and join in back together, so if it is not tiled perfectly due to the user setting, it will raise an error.
+
+Below is a visualization in [QGIS 3.0](https://qgis.org/) of a sample test image and the predicted raster mask output
+
+![qgissample1](https://user-images.githubusercontent.com/23487320/37496053-2e7a79ce-2915-11e8-9732-fd27592ba237.gif)
+
+Mask was styled using singleband pseudocolor, linear interpolation, with the OrRd color ramp in equal-interval mode.
+Opacity set to 0% for values 0, 0.25 and 0.5, and 50% for values 0.75 and 1.0.
+GIF was recorded using [Peek](https://github.com/phw/peek)
+
+### More output examples
+
+Sample outputs on cross validation dataset plotted with matplotlib inside the [jupyter notebook](nz_convnet.ipynb) environment.
+Left is input RGB image, Middle is ConvNet model output, Right is the Mask.
+
+![sample1](https://user-images.githubusercontent.com/23487320/36362177-17747d88-1597-11e8-8c17-167b8037cb71.png)
+![sample2](https://user-images.githubusercontent.com/23487320/36362245-9dd6fa04-1597-11e8-959b-87ed3217e131.png)
+![sample3](https://user-images.githubusercontent.com/23487320/36362261-bfc48046-1597-11e8-81c9-c4139569cde0.png)
+
+
 
 # Data sources used to train the [keras](https://github.com/keras-team/keras) model
 
@@ -70,12 +99,3 @@ Using freely available data from [LINZ Data Service](https://data.linz.govt.nz/)
 |Region Crop Type                       |Region Name             |LINZ Data Source|
 | ------------------------------------- |:----------------------:| --------------:|
 | NZ Topo 50 Map Sheets                 | BP31 - Porirua         | [Wellington 0.3m Rural Aerial Photos (2012-2013)](https://data.linz.govt.nz/layer/51870-wellington-03m-rural-aerial-photos-2012-2013/)
-
-
-## Output examples
-
-Sample outputs on cross validation dataset. Left is input RGB image, Middle is ConvNet model output, Right is the Mask.
-
-![sample1](https://user-images.githubusercontent.com/23487320/36362177-17747d88-1597-11e8-8c17-167b8037cb71.png)
-![sample2](https://user-images.githubusercontent.com/23487320/36362245-9dd6fa04-1597-11e8-959b-87ed3217e131.png)
-![sample3](https://user-images.githubusercontent.com/23487320/36362261-bfc48046-1597-11e8-81c9-c4139569cde0.png)
